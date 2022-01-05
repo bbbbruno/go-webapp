@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>Document</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>画像のアップロード</h1>
+    </div>
+    <form action="/uploader" enctype="multipart/form-data" method="post">
+      <input type="hidden" name="userid" value="{{.UserData.userid}}" />
+      <div class="form-group">
+        <label for="file">ファイルを選択</label>
+        <input id="file" type="file" name="avatarFile" />
+      </div>
+      <input type="submit" value="アップロード" class="btn" />
+    </form>
+  </div>
+</body>
+
+</html>
