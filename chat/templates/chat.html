@@ -36,7 +36,8 @@
           return false;
         }
         socket.send(JSON.stringify({
-          "Message": msgBox.val()
+          "Message": msgBox.val(),
+          "When": "2021-11-20 13:13:13",
         }));
         msgBox.val("");
         return false
@@ -51,10 +52,11 @@
         }
         socket.onmessage = function (e) {
           var msg = JSON.parse(e.data)
+          console.log(msg)
           messages.append($("<li>").append(
-            $("<strong>").text(msg.Name + ": "),
-            $("<span>").text(msg.Message),
-            $("<span>").text(" " + msg.When)
+            $("<strong>").text(msg.name + ": "),
+            $("<span>").text(msg.message),
+            $("<span>").text(" " + msg.when)
           ));
         }
       }
