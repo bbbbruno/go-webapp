@@ -3,9 +3,10 @@ package main
 import "time"
 
 type message struct {
-	Name    string   `json:"name"`
-	Message string   `json:"message"`
-	When    jsonTime `json:"when"`
+	Name      string   `json:"name"`
+	Message   string   `json:"message"`
+	When      jsonTime `json:"when"`
+	AvatarURL string   `json:"avatarURL"`
 }
 
 type jsonTime struct {
