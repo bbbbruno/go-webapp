@@ -18,14 +18,14 @@ import (
 	"github.com/stretchr/signature"
 )
 
-// templは1つのテンプレートを表します
+var avatars Avatar = UseFileSystemAvatar
+
 type templateHandler struct {
 	once     sync.Once
 	filename string
 	templ    *template.Template
 }
 
-// serveHTTPはHTTPリクエストを処理します
 func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	t.once.Do(func() {
 		t.templ = template.Must(template.ParseFiles(filepath.Join("templates", t.filename)))
@@ -52,7 +52,7 @@ func main() {
 		github.New("クライアントID", "秘密の値", "http://localhost:8080/auth/callback/github"),
 		google.New(os.Getenv("GOOGLE_CLIENT_ID"), os.Getenv("GOOGLE_SECRET_VALUE"), "http://localhost:8080/auth/callback/google"),
 	)
-	r := newRoom(UseFileSystemAvatar)
+	r := newRoom()
 
 	http.Handle("/", MustAuth(&templateHandler{filename: "chat.html"}))
 	http.Handle("/login", &templateHandler{filename: "login.html"})
