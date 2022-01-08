@@ -3,7 +3,6 @@ package thesaurus
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 )
 
@@ -30,10 +29,6 @@ func (b *BigHuge) Synonyms(term string) ([]string, error) {
 	if err := json.NewDecoder(response.Body).Decode(&data); err != nil {
 		return syns, err
 	}
-	log.Printf("%v", &data)
-	log.Printf("%v", data)
-	log.Printf("%v", data.Noun)
-	log.Printf("%v", data.Verb)
 	syns = append(syns, data.Noun.Syn...)
 	syns = append(syns, data.Verb.Syn...)
 	return syns, nil
