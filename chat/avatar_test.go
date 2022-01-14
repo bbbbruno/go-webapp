@@ -54,9 +54,9 @@ func TestFileSystemAvatar(t *testing.T) {
 	user := chatUser{uniqueID: "abc"}
 	url, err := fileSystemAvatar.GetAvatarURL(user)
 	if err != nil {
-		t.Error("ileSystemAvatar.GetAvatarURLはエラーを返すべきではありません")
+		t.Error("FileSystemAvatar.GetAvatarURLはエラーを返すべきではありません")
 	}
 	if url != "/avatars/abc.jpg" {
-		t.Errorf("ileSystemAvatar.GetAvatarURLが%sという誤った値を返しました", url)
+		t.Errorf("FileSystemAvatar.GetAvatarURLが%sという誤った値を返しました", url)
 	}
 }
