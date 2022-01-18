@@ -20,10 +20,18 @@ $ nsqd --lookupd-tcp-address=localhost:4160
 $ mongod --dbpath ./db
 ```
 
-### `main.go`
+### `twittervote`
 
 ```bash
 $ cd twittervotes
 $ go build
 $ ./twittervotes
+```
+
+### `counter`
+
+```bash
+$ cd counter
+$ go build
+$ ./counter
 ```
