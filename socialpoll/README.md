@@ -18,6 +18,10 @@ $ nsqd --lookupd-tcp-address=localhost:4160
 
 ```bash
 $ mongod --dbpath ./db
+$ mongo
+> use ballots
+> db.polls.insert({"title":"調査のテスト１","options":["one","two","three"]})
+> db.polls.find().pretty()
 ```
 
 ### `twittervote`
@@ -34,4 +38,12 @@ $ ./twittervotes
 $ cd counter
 $ go build
 $ ./counter
+```
+
+### `api`
+
+```bash
+$ cd api
+$ go build
+$ ./api
 ```
